@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisaArena — Solana Esports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">◈ DISA<span>ARENA</span></a>
+
+    <nav>
+        <a href="#games">Игры</a>
+        <a href="#tournaments">Турниры</a>
+        <a href="#bracket">Сетка</a>
+        <a href="#profile">Профиль</a>
+    </nav>
+
+    <button id="walletBtn" class="wallet-btn">
+        ◎ Подключить Solana
+    </button>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <small>WEB3 ESPORTS • SOLANA DEVNET</small>
+            <h1>ТВОЯ ИГРА.<br><span>ТВОЯ АРЕНА.</span></h1>
+
+            <p>
+                DisaArena — мультигейминговая турнирная платформа.
+                Соревнуйся в любимых играх, собирай команду и
+                следи за наградами в экосистеме Solana.
+            </p>
+
+            <a href="#tournaments" class="main-btn">Найти турнир ↗</a>
+            <a href="#profile" class="second-btn">Мой профиль</a>
+
+            <div class="metrics">
+                <div><b>08</b><small>Игр</small></div>
+                <div><b>120+</b><small>Игроков</small></div>
+                <div><b>◎ SOL</b><small>Devnet</small></div>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="arena-logo">◎<b>DA</b></div>
+            <small>POWERED BY SOLANA</small>
+        </div>
+    </section>
+
+    <section class="solana-banner">
+        <div class="sol-symbol">◎</div>
+        <div>
+            <small>SOLANA BLOCKCHAIN</small>
+            <h2>Турниры встречаются с Web3</h2>
+            <p>Подключай Phantom, смотри баланс SOL в Devnet и знакомься с демо-механикой наград.</p>
+        </div>
+        <a href="https://faucet.solana.com/" target="_blank">
+            Получить тестовые SOL ↗
+        </a>
+    </section>
+
+    <section id="games">
+        <small>ВЫБИРАЙ СВОЮ ИГРУ</small>
+        <h2>Игровые дисциплины</h2>
+        <div id="gameGrid" class="games-grid"></div>
+    </section>
+
+    <section id="tournaments">
+        <div class="section-head">
+            <div>
+                <small>СРАЖАЙСЯ ЗА ПРИЗЫ</small>
+                <h2>Турниры</h2>
+            </div>
+            <button id="createTournament">＋ Создать турнир</button>
+        </div>
+
+        <div class="filters">
+            <button class="active" data-filter="Все">Все игры</button>
+            <button data-filter="CS2">CS2</button>
+            <button data-filter="PUBG">PUBG</button>
+            <button data-filter="Valorant">Valorant</button>
+            <button data-filter="Dota 2">Dota 2</button>
+            <button data-filter="Apex Legends">Apex</button>
+        </div>
+
+        <div id="tournamentList" class="tournament-grid"></div>
+    </section>
+
+    <section id="bracket">
+        <div class="section-head">
+            <div>
+                <small>ПУТЬ К ФИНАЛУ</small>
+                <h2>Турнирная сетка</h2>
+            </div>
+            <select id="bracketSelect">
+                <option value="0">CS2 Cup</option>
+                <option value="1">PUBG Squad Clash</option>
+                <option value="2">Valorant Night</option>
+            </select>
+        </div>
+        <div id="bracketView" class="bracket"></div>
+    </section>
+
+    <section id="profile" class="profile-grid">
+        <div class="panel">
+            <small>PLAYER CARD</small>
+            <h2>Мой профиль</h2>
+
+            <div class="user-info">
+                <div class="avatar">D</div>
+                <div>
+                    <h3 id="profileName">D1AS</h3>
+                    <p id="profileAddress">Кошелёк не подключён</p>
+                    <small>LEVEL 12 · ARENA MEMBER</small>
+                </div>
+            </div>
+
+            <label>Игровой никнейм</label>
+            <div class="inline">
+                <input id="nickname" placeholder="Твой никнейм">
+                <button id="saveNickname">Сохранить</button>
+            </div>
+
+            <div class="stats">
+                <div><b>14</b><small>Матчей</small></div>
+                <div><b>7</b><small>Побед</small></div>
+                <div><b>50%</b><small>Win rate</small></div>
+                <div><b>3</b><small>Достижения</small></div>
+            </div>
+
+            <h3>Достижения</h3>
+            <div class="achievements">
+                <div>🏆 Первая победа</div>
+                <div>⚡ Серия из 3</div>
+                <div>🎯 Лучший игрок</div>
+            </div>
+
+            <h3>История матчей</h3>
+            <div class="match-history">
+                <p>CS2 · Weekend Cup <b class="win">ПОБЕДА 13:9</b></p>
+                <p>PUBG · Squad Clash <b class="loss">ПОРАЖЕНИЕ #5</b></p>
+                <p>Valorant · Night Series <b class="win">ПОБЕДА 13:8</b></p>
+            </div>
+
+            <div id="myTournaments"></div>
+        </div>
+
+        <div class="panel wallet-panel">
+            <small>ON-CHAIN IDENTITY</small>
+            <h2>Solana Wallet ◎</h2>
+
+            <div class="wallet-card">
+                <small>БАЛАНС • DEVNET</small>
+                <div id="walletBalance" class="balance">— <small>SOL</small></div>
+                <p id="walletAddress">Подключи Phantom для просмотра адреса</p>
+            </div>
+
+            <button id="connectWallet" class="wide">Подключить Phantom</button>
+            <button id="refreshBalance" class="wide second-btn">↻ Обновить баланс</button>
+
+            <a class="faucet" href="https://faucet.solana.com/" target="_blank">
+                Получить тестовые SOL ↗
+            </a>
+
+            <p class="note">
+                Devnet — тестовая сеть. Демо-награды не являются реальными переводами.
+            </p>
+
+            <h3>История наград</h3>
+            <div id="rewardHistory">Пока нет наград.</div>
+        </div>
+    </section>
+
+    <section class="panel organizer">
+        <small>ORGANIZER TOOLS</small>
+        <h2>Панель организатора</h2>
+        <p>Создавай турниры и начисляй виртуальные награды для демонстрации.</p>
+
+        <div class="organizer-controls">
+            <select id="adminTournament"></select>
+            <input id="winnerName" placeholder="Победитель / команда">
+            <input id="rewardAmount" type="number" min="0.01" step="0.01" value="1">
+            <button id="awardPrize">Начислить демо-приз</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a href="#" class="logo">◈ DISA<span>ARENA</span></a>
+    <p>Мультигейминговая платформа на Solana Devnet.</p>
+    <small>© 2026 DISAARENA</small>
+</footer>
+
+<div id="registerModal" class="modal hidden">
+    <div class="modal-box">
+        <button id="closeModal" class="close">×</button>
+        <small>JOIN THE ARENA</small>
+        <h2 id="modalTitle">Регистрация</h2>
+
+        <form id="registerForm">
+            <input type="hidden" id="tournamentId">
+
+            <label>Команда / никнейм</label>
+            <input id="teamName" required placeholder="Название команды">
+
+            <label>Формат</label>
+            <select id="teamFormat">
+                <option>5 на 5</option>
+                <option>2 на 2</option>
+                <option>1 на 1</option>
+                <option>Squad</option>
+                <option>Solo</option>
+            </select>
+
+            <label>Solana-кошелёк (необязательно)</label>
+            <input id="prizeWallet" placeholder="Адрес кошелька">
+
+            <button type="submit">Подтвердить регистрацию</button>
+        </form>
+    </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
